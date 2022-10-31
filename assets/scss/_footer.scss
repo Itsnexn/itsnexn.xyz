@@ -1,0 +1,70 @@
+.footer {
+  margin-top: 3rem;
+  font-family: $fontHeader;
+
+  .donation-sec {
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-container {
+    display: flex;
+    justify-content: center;
+
+    .social {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      // @media only screen and (max-width: 450px) {
+        // display: none;
+      // }
+
+      .social-item {
+        // padding: .3rem .4rem;
+        margin: .3rem .2rem;
+        display: flex;
+
+        padding: 8px 5px;
+        list-style: none;
+        text-decoration: none;
+        color: inherit;
+
+        @media only screen and (max-width: 450px) {
+          margin: .7rem 0rem;
+          padding: 5px 5px;
+        }
+
+        &::before {
+          content: "[";
+          font-weight: bold;
+          padding-right: 3px;
+        }
+        &::after {
+          content: "]";
+          font-weight: bold;
+          padding-left: 3px;
+        }
+
+        .social-link {
+          color: $sapphire;
+          text-decoration: none;
+          transition: color .3s;
+          &:hover {
+            color: $blue;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    color: $overlay0;
+    margin-bottom: 10vw;
+  }
+}
+

@@ -1,0 +1,70 @@
+{{ define "title" }}
+  {{ $url := urls.Parse .Site.BaseURL }}
+  {{ .Title }} | {{ $url.Host}}
+{{ end }}
+{{ define "content" }}
+  <section class="pg-list">
+    <h1 class="title">
+      <a class="title-link" href="{{ .Permalink | safeURL }}">
+        {{ .Title }}
+      </a>
+    </h1>
+    <div class="content">
+      {{ .Content }}
+    </div>
+    <ul class="list">
+      {{ range .Paginator.Pages }}
+        <li class="book">
+          <div class="cover" >
+            <a class="cover-a" href="{{ .Params.externalLink | default .RelPermalink | relURL }}">
+              <img class="cover-img" src="{{ .Params.Cover | default "/images/default_cover.jpg" | relURL }}")>
+            </a>
+          </div>
+          <div class="info">
+            <div class="head">
+              <h3 class="title"><a href="{{ .Params.externalLink | default .RelPermalink | relURL }}">{{ .Title }}</a></h3>
+              {{ with .Params.BAuthors }}
+                <div class="authors">
+                  <span>By</span>
+                  {{ range $index, $author := .}}
+                  <span class="author">{{ $author }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+            <ul>
+              <li>Date Read:
+                <span class="date">{{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
+              </li>
+              <li>ISBN:
+                <span class="isbn">{{ .Params.isbn | default "Not Available" }}</span>
+              </li>
+              <li>My Rating:
+                {{ $r := (.Params.rating | default -1 | int )}}
+                {{ if and (ge $r 0) (le $r 10) }}
+                  {{ $s := "" }}
+                  {{ if le $r 4 }}
+                    {{ $s = "bad-review" }}
+                  {{ else if le $r 6 }}
+                    {{ $s = "medium-review" }}
+                  {{ else }}
+                    {{ $s = "good-review" }}
+                  {{ end }}
+                  <span class="rate {{$s}}">{{ $r }}/10</span>
+                {{ else }}
+                  <span class="rate">None/10</span>
+                {{ end }}
+              </li>
+            </ul>
+            <div class="summary">
+                {{ .Summary }}
+            </div>
+          </div>
+        </li>
+      {{ end }}
+    </ul>
+
+    {{ partial "pagination.html" . }}
+  </section>
+{{ end }}
+

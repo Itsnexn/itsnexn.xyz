@@ -1,0 +1,84 @@
+// Source: https://github.com/luizdepra/hugo-coder/blob/main/assets/scss/_tabs.scss
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem 0 2rem 0;
+  position: relative;
+
+  &.tabs-left {
+    justify-content: flex-start;
+
+    label.tab-label {
+      margin-right: 0.5rem;
+    }
+
+    .tab-content {
+      border-radius: 0px 4px 4px 4px;
+    }
+  }
+
+  &.tabs-right {
+    justify-content: flex-end;
+
+    label.tab-label {
+      margin-left: 0.5rem;
+    }
+
+    .tab-content {
+      border-radius: 4px 0px 4px 4px;
+    }
+  }
+
+  input.tab-input {
+    display: none;
+  }
+
+  label.tab-label {
+    background-color: $surface0;
+    border-color: $surface0;
+    border-radius: 4px 4px 0px 0px;
+
+    border-style: solid;
+    border-bottom-style: hidden;
+
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    order: 1;
+    padding: 0.3rem 0.6rem;
+    position: relative;
+    top: 1px;
+    user-select: none;
+  }
+
+  input.tab-input:checked + label.tab-label {
+    background-color: $mantle;
+  }
+
+  .tab-content {
+    background-color: $mantle;
+    border-color: $surface0;
+    border-style: solid;
+    border-width: 1px;
+    display: none;
+    order: 2;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  &.tabs-code {
+    input.tab-input:checked + label.tab-label {
+      background-color: $base;
+    }
+    .tab-content {
+      background-color: $base;
+      padding: 0.5rem;
+
+      pre {
+        background-color: $base;
+        margin: 0;
+      }
+    }
+  }
+}
+

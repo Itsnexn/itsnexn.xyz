@@ -1,0 +1,35 @@
+.post {
+  header {
+    margin-bottom: 2rem;
+
+    .title {
+      margin-bottom: .5rem;
+    }
+
+    .post-desc {
+      margin-bottom: 1rem;
+    }
+
+    .meta-list {
+      .date {
+        .posted-on {
+          margin-left: 0;
+          margin-right: 1.5rem;
+        }
+      }
+    }
+  }
+  .seealso {
+    margin: 3rem 0 0 0;
+    section nav ul {
+      padding-left: 1rem;
+    }
+  }
+}
+
+.mermaid {
+  svg {
+    margin: 1rem 0;
+  }
+}
+

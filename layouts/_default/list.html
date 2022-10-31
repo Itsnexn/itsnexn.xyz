@@ -1,0 +1,42 @@
+{{ define "title" }}
+  {{ $url := urls.Parse .Site.BaseURL }}
+  {{ if eq .Kind "term" }}
+    {{ i18n .Data.Plural 1 | title }}
+    {{ print ": " }}
+  {{ end }}
+  {{ .Title | title }} | {{ $url.Host}}
+{{ end }}
+{{ define "content" }}
+  <section class="pg-list">
+    <h1 class="title">
+      {{ if eq .Kind "term" }}
+        <a class="title-link" href="/{{ .Data.Plural | lower }}">
+          {{ (i18n (.Data.Plural | lower) 1 | default .Data.Plural) | title }}{{ print ": " }}
+        </a>
+      {{ end }}
+      {{ .Title | title }}
+    </h1>
+    {{ with .Content }}
+    <div class="content">
+      {{ . }}
+    </div>
+    {{end}}
+    <ul class="list">
+      {{ range .Paginator.Pages }}
+        <li class="list-item">
+          <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+          <div class="post-meta">
+            <span>{{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
+            <span class="separator">•</span>
+            <span>{{ .ReadingTime }} Minute Read</span>
+          </div>
+          {{ with .Description }}
+            <div class="post-desc">{{ . }}</div>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+
+    {{ partial "pagination.html" . }}
+  </section>
+{{ end }}

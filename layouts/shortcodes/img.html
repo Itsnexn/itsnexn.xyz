@@ -1,0 +1,17 @@
+{{ $src    := .Get "src"    }}
+{{ $alt    := .Get "alt"    }}
+{{ $class  := .Get "class"  }}
+{{ $align  := .Get "align"  }}
+{{ $width  := .Get "width"  }}
+{{ $height := .Get "height" }}
+
+{{ if $src }}
+<img
+  src="{{ $src }}"
+  {{ with $class  }}class="{{ . }}"{{ end }}
+  {{ with $align  }}align="{{ . }}"{{ end }}
+  {{ with $alt    }}alt="{{ . }}"{{ end }}
+  {{ with $width  }}width="{{ . }}"{{ end }}
+  {{ with $height }}height="{{ . }}"{{ end }}
+  >
+{{ end }}

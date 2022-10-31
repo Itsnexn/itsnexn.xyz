@@ -1,0 +1,89 @@
+{{ define "title" }}
+  {{ $url := urls.Parse .Site.BaseURL }}
+  {{ .Title }} | {{ $url.Host}}
+{{ end }}
+{{ define "content" }}
+  <section class="post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="{{ .Permalink | safeURL }}">
+              {{ .Title }}
+            </a>
+          </h1>
+        </div>
+        {{ if .Description }}
+          <div class="post-desc">
+            {{ .Description }}
+          </div>
+        {{ end }}
+        <ul class="meta-list">
+          {{ with $.Param "authors" }}
+            <li class="meta-item">
+              <span class="mkey" >Authors:</span>
+              {{if reflect.IsSlice . }}
+                {{ range $index, $el := . }}
+                  {{ if gt $index 0 }}
+                    <span class="separator">•</span>
+                  {{ end }}
+                  <span class="author data" ><a href="/authors/{{. | anchorize }}">@{{ . }}</a></span>
+                {{ end }}
+              {{ else }}
+                <span class="author data">@{{ . }}</span>
+              {{ end }}
+            </li>
+          {{ end }}
+          <li class="meta-item">
+            <span class="mkey">
+              Published At:
+            </span>
+            <time class="mval" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+              {{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}
+            </time>
+          </li>
+          <li class="meta-item">
+            <span class="mkey">Reading Time:</span>
+            <span>{{ .ReadingTime }} Minute</span>
+          </li>
+          {{ with .Page.Params.Categories }}
+            <li class="meta-item">
+              <span class="mkey">Categories:</span>
+              {{if reflect.IsSlice . }}
+                {{ range $index, $el := . }}
+                  {{ if gt $index 0 }}
+                  <span class="separator">•</span>
+                  {{ end }}
+                <a class="author data" href="{{ ( printf "categories/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
+                {{ end }}
+              {{ else }}
+                <a class="author data" href="{{ ( printf "categories/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
+              {{ end }}
+            </li>
+          {{ end }}
+          {{ with .Page.Params.Tags }}
+            <li class="meta-item">
+              <span class="mkey">Tags:</span>
+              <span class="tags">
+                {{ range $index, $el := . }}
+                <span class="tag">
+                  <a href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">#{{ . }}</a>
+                </span>
+                {{ end }}
+              </span>
+            </li>
+          {{ end }}
+        </ul>
+      </header>
+      <div>
+        {{ if .Params.featuredImage }}
+          <img src="{{ .Params.featuredImage | relURL }}" alt="Featured image"/>
+        {{ end }}
+        <div class="content-container">{{ .Content }}</div>
+      </div>
+      {{ partial "series.html" . }}
+    </article>
+    {{ partial "math.html" . }}
+  </section>
+{{ end }}
+

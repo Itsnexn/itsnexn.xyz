@@ -1,0 +1,17 @@
+{{ define "title" }}
+  {{ $url := urls.Parse .Site.BaseURL }}
+  {{ .Title | title }} | {{ $url.Host}}
+{{ end }}
+{{ define "content" }}
+  <article class="page">
+    <header>
+      <h1 class="title">
+        <a href="{{ .Permalink | safeURL }}">
+          {{ .Title }}
+        </a>
+      </h1>
+    </header>
+    <div class="content-container">{{ .Content }}</div>
+  </article>
+  {{ partial "math.html" . }}
+{{ end }}

@@ -1,0 +1,19 @@
+<footer class="footer">
+  <section class="donation-sec">
+    <div>
+      <a href="/privacy">Privacy Policy</a>
+      <span class="separator">•</span>
+      <a href="/donation">Donate</a>
+    </div>
+  </section>
+  <section class="social-container">
+    {{ partialCached "social.html" . }}
+  </section>
+  <section class="copyright">
+    copyright {{ (urls.Parse .Site.BaseURL).Host }} ©
+    {{ if (and .Site.Params.since (lt .Site.Params.since now.Year)) }}
+      {{ .Site.Params.since }} -
+    {{ end }}
+    {{ now.Year }}
+  </section>
+</footer>

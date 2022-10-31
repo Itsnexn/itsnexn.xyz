@@ -1,0 +1,39 @@
+{{ define "title" }}
+  {{ $url := urls.Parse .Site.BaseURL }}
+  {{ .Title }} | {{ $url.Host}}
+{{ end }}
+{{ define "content" }}
+<article class="donation">
+  <header>
+    <h1 class="title">
+      <a href="{{ .Permalink | safeURL }}">
+        {{ .Title }}
+      </a>
+    </h1>
+  </header>
+  <div class="content">
+    {{.Content}}
+  </div>
+
+
+  <div class="payopts">
+    {{ with .Site.Params.donation }}
+      <h3>Payment Options:</h3>
+      <ul class="payment-list">
+        {{ range . }}
+          <li class="payment-item">
+            {{if .url }}
+              <a href="{{ .url | safeURL }}" rel="payment" class="payment-link">{{ .name | title }}</a>
+            {{else}}
+              <span class="payment-name">{{ .name | title }}</span>
+            {{end}}
+            {{if .address}}
+              <span class="payment-address">{{.address}}</span>
+            {{end}}
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

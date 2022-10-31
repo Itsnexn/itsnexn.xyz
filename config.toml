@@ -1,0 +1,118 @@
+# This file is part of "Itsnexn.xyz" source-code.
+# licensed under MIT (https://opensource.org/licenses/MIT).
+#
+# https://github.com/itsnexn/itsnexn.xyz
+
+# Basic configuration
+baseURL = "itsnexn.xyz"
+title = "Nex Planet"
+
+# Lang
+languageCode = "en"
+enableRobotsTXT = false
+defaultContentLanguage = "en"
+
+# Paginate in list's
+paginate = 15
+
+# Emojify the content
+enableEmoji = true
+
+# Add classes for custom css
+[markup.highlight]
+noClasses=false
+
+[params]
+# Website author
+# *Required
+author = "Itsnexn"
+
+# Website Description
+# *Required
+description = """\
+I've been a CTF Player, bug bounty hunter, reverse engineer, and \
+open source developer. I enjoy writing about things I discover on my \
+journeys in the world of technology and also some other usefull stuff :)"""
+
+# Website keywords
+# Used in website meta data
+keywords = ["blog", "developer", "personal", "security", "bugbounty", "hacking"]
+
+# Opengraph default image
+# not required but recomended
+ogImage = "/images/ogimage.jpg"
+
+# Home page Header - Keep it short
+header = "Itsnexn"
+
+# date format used in the application
+dateFormat = "January 2, 2006"
+
+# Footer copyright
+since = 2021
+
+# Max recent posts in home page
+maxRecentPosts = 5
+
+# Max see also items in the post series
+maxSeeAlsoItems = 5
+
+# Rss limit
+# Comment it if you don't want limitation
+# rssLimit = 1
+
+# -- Taxonomies
+[taxonomies]
+category = "categories"
+series = "series"
+tag = "tags"
+author = "authors"
+
+# -- Menu
+[[menu.main]]
+name = "Posts"
+weight = 2
+url = "posts/"
+[[menu.main]]
+name = "Projects"
+weight = 3
+url = "projects/"
+[[menu.main]]
+name = "Books"
+weight = 4
+url = "books/"
+[[menu.main]]
+name = "Contact"
+weight = 5
+url = "contact/"
+
+# -- Donation
+# this object will be used in "/donation" page
+[[params.donation]]
+name = "Bitcoin"
+address = "15PZc1giAhrruUohdum16ZpXV4FTE5ngrh"
+[[params.donation]]
+name = "Ethereum"
+address = "0x4Fe9e7B0244cf8ef47ad9afA50Bf162450fF73b1"
+
+# -- Social
+# Social media links in the footer
+[[params.social]]
+name = "Github"
+weight = 1
+url = "https://github.com/itsnexn/"
+[[params.social]]
+name = "Reddit"
+weight = 2
+url = "https://www.reddit.com/user/Itsnexn"
+[[params.social]]
+name = "Twitter"
+weight = 3
+url = "https://twitter.com/itsnexn/"
+[[params.social]]
+name = "RSS"
+weight = 4
+url = "/index.xml"
+rel = "alternate"
+type = "application/rss+xml"
+

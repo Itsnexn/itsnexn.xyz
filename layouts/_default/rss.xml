@@ -1,0 +1,36 @@
+{{ $limit := .Site.Params.rssLimit }}
+{{ $maxlimit := 9999999999 }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Title | default .Site.Title}}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{.Site.Params.description}}</description>
+    <generator>Hugo - gohugo.io</generator>
+    {{ with .Site.LanguageCode }}
+      <language>{{.}}</language>
+    {{end}}
+    {{ with .Site.Copyright }}
+      <copyright>{{.}}</copyright>
+    {{end}}
+
+    {{ if not .Date.IsZero }}
+      <lastBuildDate>{{ .Date.Format (.Site.Params.dateFormat | default "Mon, 02 Jan 2006 15:04:05 -0700") | safeHTML }}</lastBuildDate>
+    {{ end }}
+    {{ range where .Site.RegularPages "Section" "posts" | first ( $limit | default $maxlimit )}}
+      <item>
+        <title>{{ .Title }}</title>
+        <link>{{ .Permalink }}</link>
+        <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+        {{ with .Params.Authors | default .Params.Author }}
+          {{if reflect.IsSlice . }}
+            <author>{{delimit . ", "}}</author>
+          {{ else }}
+            <author>{{.}}</author>
+          {{end}}
+        {{end}}
+        <guid>{{ .Permalink }}</guid>
+        <description>{{ .Summary | html }}</description>
+      </item>
+    {{ end }}
+  </channel>
+</rss>

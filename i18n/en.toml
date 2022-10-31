@@ -1,0 +1,15 @@
+[categories]
+one = "category"
+other = "categories"
+
+[tags]
+one = "tag"
+other = "tags"
+
+[series]
+one = "series"
+other = "series"
+
+[authors]
+one = "author"
+other = "authors"

@@ -1,0 +1,39 @@
+{{ define "title" }}
+  {{ $url := urls.Parse .Site.BaseURL }}
+  {{ if eq .Kind "term" }}
+    {{ i18n .Data.Plural 1 | title }}
+    {{ print ": " }}
+  {{ end }}
+  {{ .Title | title }} | {{ $url.Host}}
+{{ end }}
+{{ define "content" }}
+  <section class="taxonomy">
+    <h1 class="title">
+      <a class="title-link" href="{{ .Permalink | safeURL }}">
+        {{- if eq .Kind "term" -}}
+          {{- i18n .Data.Plural | title -}}
+          {{- print ": " -}}
+        {{- end -}}
+        {{- i18n (lower .Title) | default .Title | title -}}
+      </a>
+    </h1>
+    {{ with .Content }}
+    <div>{{ . }}</div>
+    {{ end }}
+    <ul class="tx">
+      {{ $type := .Type }}
+      {{ range $key, $value := .Data.Terms.Alphabetical }}
+        {{ $name := .Name }}
+        {{ $count := .Count }}
+        {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+          <li class="tx-li">
+            <span class="tx-el">
+              <a href="{{ .Permalink }}">{{ .Name }}</a>
+              <span class="count">{{ $count }}</span>
+            </span>
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}

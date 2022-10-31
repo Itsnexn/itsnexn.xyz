@@ -1,0 +1,29 @@
+{{ $currentPageUrl := .RelPermalink }}
+{{ if .Params.series }}
+  <aside class="see-also">
+    {{ range .Params.series }}
+      {{ $name := . | urlize }}
+      {{ $series := index $.Site.Taxonomies.series $name }}
+      {{ if gt (len $series.Pages) 1 }}
+        <hr>
+        <h3 id="{{ "See also in" | anchorize }}-{{ anchorize . | safeURL }}">
+          <span>See also in</span>
+          <span>"<a href="/series/{{$name}}">{{ . | lower }}</a>"</span>
+        </h3>
+        <nav>
+          <ul>
+          {{ $maxItems := $.Site.Params.maxSeeAlsoItems | default 5 }}
+          {{ range first (add $maxItems 1) $series.Pages }}
+            {{ if ne .RelPermalink $currentPageUrl }}
+              <li>
+                <a href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
+          </ul>
+        </nav>
+      {{ end }}
+    {{ end }}
+  </aside>
+{{ end }}
+

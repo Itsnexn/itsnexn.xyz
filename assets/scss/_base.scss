@@ -1,0 +1,304 @@
+body {
+  background-color: $bg;
+  color: $fg;
+  font-family: $fontDefault;
+  .title {
+    a {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+
+
+  .main-container {
+    padding-top: 1.5rem;
+    margin: auto;
+    margin: auto;
+    max-width: 40vw;
+
+    @media only screen and (max-width: 1400px) {
+      max-width: 70vw;
+    }
+
+    @media only screen and (max-width: 750px) {
+      max-width: 90vw;
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    font-size: .8rem;
+  }
+}
+
+.dim {
+  color: $overlay1;
+}
+
+.highlight {
+  color: $maroon;
+}
+
+::selection {
+  color: $bg;
+  background: $yellow;
+}
+
+p {
+  font-family: $fontDefault;
+  line-height: 1.4rem;
+}
+
+hr {
+  border-color: $surface1;
+  border-width: 2px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fontHeader;
+  .heading-link {
+    transition: color .3s;
+    color: $bg;
+  }
+  &:hover .heading-link {
+    color: $blue;
+  }
+
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 1.5rem 0 1.3rem 0;
+  @media only screen and (max-width: 750px) {
+    font-size: 1.6rem;
+  }
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin: 1.35rem 0 1.15rem 0;
+  @media only screen and (max-width: 750px) {
+    font-size: 1.5rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 1.2rem 0 1rem 0;
+  @media only screen and (max-width: 750px) {
+    font-size: 1.3rem;
+  }
+}
+
+h4 {
+  font-size: 1.4rem;
+  margin: 1.05rem 0 .85rem 0;
+  @media only screen and (max-width: 750px) {
+    font-size: 1.2rem;
+  }
+}
+
+h5 {
+  font-size: 1.3rem;
+  margin: 1.05rem 0 .85rem 0;
+  @media only screen and (max-width: 750px) {
+    font-size: 1.1rem;
+  }
+}
+
+h6 {
+  font-size: 1.2rem;
+  margin: .75rem 0 .55rem 0;
+  @media only screen and (max-width: 750px) {
+    font-size: 1rem;
+  }
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+a {
+  font-weight: 500;
+  color: $blue;
+  text-decoration: none;
+  transition: all 0.25s ease-in;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+table {
+  margin: 2rem 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: .6rem;
+  border: 1px solid white;
+}
+
+pre {
+  display: block;
+  font-family: $fontCode;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  overflow-x: auto;
+  margin: 0;
+  padding: .8rem;
+  background-color: $base;
+
+  code {
+    display: inline-block;
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+code {
+  background-color: $surface0;
+  font-family: $fontCode;
+  font-weight: 400;
+  color: $fg;
+  border-radius: 0.3rem;
+  padding: 0 0.4rem;
+}
+
+blockquote {
+  border-left: 4px solid $overlay1;
+  background: linear-gradient(90deg, $base 0%, $mantle 75%, $bg 100%);
+  padding: .4rem 0 .4rem 1rem;
+  line-height: 1.4rem;
+  margin: 2rem;
+  font-weight: 400;
+}
+
+.footnotes {
+  p, li {
+    margin: 0;
+  }
+}
+
+.footnote-ref {
+  font-family: $fontHeader;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.3rem;
+  color: $blue;
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.footnote-backref {
+  text-decoration: none;
+  padding: 0.3rem;
+  color: $blue;
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+ul, ol {
+  list-style-position: outside;
+  padding-left: 1rem;
+  li {
+    line-height: 1.5rem;
+  }
+}
+
+.content-container {
+  li {
+    list-style-type: disc;
+  }
+}
+
+.katex-display {
+  font-size: 1.3rem;
+}
+
+figure {
+  figcaption {
+    text-align: center;
+  }
+}
+
+
+.meta-list {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  .meta-item {
+    @media only screen and (max-width: 400px) {
+      height: .9rem;
+    }
+    list-style: none;
+    padding: .2rem 0;
+    margin: .1rem;
+
+    .mkey {
+      font-weight: bold;
+      display: inline;
+    }
+  }
+}
+
+.tags {
+  .tag {
+    display: inline-block !important;
+    padding: 0rem 0.2rem;
+    background-color: $surface0;
+    border-radius: 0.3rem;
+    line-height: 1.4em;
+
+    a {
+      color: $fg;
+    }
+    a:active {
+      color: $fg;
+    }
+  }
+}
+
+.separator {
+  padding: 0 0.2rem;
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+.img-center {
+  display: block;
+  margin: 0 auto;
+}
+
+.vim-caret{
+  animation:vimCaret 1s linear infinite
+}
+
+@keyframes vimCaret{
+  0% {
+    background-color: transparent;
+  }
+  49% {
+    background-color: transparent;
+  }
+  50%{
+    background-color: $surface1;
+  }
+  100%{
+    background-color: $surface1;
+  }
+}
+

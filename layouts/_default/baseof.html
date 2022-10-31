@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    {{ partial "head.html" . }}
+  </head>
+
+  <body>
+    <main class="main-container">
+      {{ partial "header.html" . }}
+
+      <div class="content">
+        {{ block "content" . }}{{ end }}
+      </div>
+
+      {{ partial "footer.html" . }}
+    </main>
+
+    {{ if .HasShortcode "mermaid" }}
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.5/dist/mermaid.min.js"]
+        integrity="sha256-RqbL4xBKYq/iP+616ZrXdmaNyCuRX1mW7wjsHPfa8uY="
+        crossorigin="anonymous">
+      </script>
+      <script>mermaid.initialize({ theme: "dark", startOnLoad: true });</script>
+    {{ end }}
+
+  </body>
+
+</html>
