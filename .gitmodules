@@ -1,3 +1,3 @@
 [submodule "content"]
 	path = content
-	url = https://github.com/itsnexn/itsnexn.xyz-content.git
+	url = git@github.com:itsnexn/itsnexn.xyz-content.git
