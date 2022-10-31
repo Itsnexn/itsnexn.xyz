@@ -4,7 +4,7 @@
 # https://github.com/itsnexn/itsnexn.xyz
 
 # Basic configuration
-baseURL = "itsnexn.xyz"
+# baseURL = "itsnexn.xyz"
 title = "Nex Planet"
 
 # Lang
