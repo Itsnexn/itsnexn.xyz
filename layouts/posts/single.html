@@ -1,6 +1,5 @@
 {{ define "title" }}
-  {{ $url := urls.Parse .Site.BaseURL }}
-  {{ .Title }} | {{ $url.Host}}
+  {{ .Title }} | {{ .Site.Params.URL }}
 {{ end }}
 {{ define "content" }}
   <section class="post">

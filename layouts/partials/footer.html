@@ -10,7 +10,7 @@
     {{ partialCached "social.html" . }}
   </section>
   <section class="copyright">
-    copyright {{ (urls.Parse .Site.BaseURL).Host }} ©
+    copyright {{ .Site.Params.URL }} ©
     {{ if (and .Site.Params.since (lt .Site.Params.since now.Year)) }}
       {{ .Site.Params.since }} -
     {{ end }}

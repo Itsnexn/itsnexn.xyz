@@ -1,13 +1,16 @@
 {{ define "title" }}
-  {{ $url := urls.Parse .Site.BaseURL }}
-  "404 Not Found" | {{ $url.Host}}
+  404 Not Found | {{ .Site.Params.URL }}
 {{ end }}
 {{ define "content" }}
 <section class="container centered">
   <div class="error">
     <h1>404 Not Found</h1>
     <h2>Its seems like this page has been pwned! (⚆ _ ⚆)</h2>
-    <p>eyBzdGF0dXM6ICdQd25lZCcgfQo=</ br><a href="/">Head back to Hope page<a></p>
+    <p>
+      <span>eyBzdGF0dXM6ICdQd25lZCcgfQo=</span>
+      <br>
+      <a href="/">Head back to Hope page<a>
+    </p>
   </div>
 </section>
 {{ end }}

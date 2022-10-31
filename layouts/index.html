@@ -1,7 +1,5 @@
 {{ define "title" }}
-  {{ $url := urls.Parse .Site.BaseURL }}
-  {{ .Title | default .Site.Title }}
-  {{ if $url }} | {{ path.Clean $url}}{{ end }}
+  {{ .Title | default .Site.Title }} | itsnexn.xyz
 {{ end }}
 {{ define "content" }}
 <section class="about">

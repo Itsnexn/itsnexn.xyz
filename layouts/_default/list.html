@@ -1,10 +1,9 @@
 {{ define "title" }}
-  {{ $url := urls.Parse .Site.BaseURL }}
   {{ if eq .Kind "term" }}
     {{ i18n .Data.Plural 1 | title }}
     {{ print ": " }}
   {{ end }}
-  {{ .Title | title }} | {{ $url.Host}}
+  {{ .Title | title }} | {{ .Site.Params.URL }}
 {{ end }}
 {{ define "content" }}
   <section class="pg-list">
