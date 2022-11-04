@@ -1,0 +1,5 @@
+{{ $id := .Get "id" | default (.Get 0) }}
+
+{{ if $id }}
+<span id="{{ $id }}"></span>
+{{ end }}
