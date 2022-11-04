@@ -133,6 +133,11 @@ a {
   &:hover {
     text-decoration: underline;
   }
+
+  code {
+    color: $blue !important;
+    text-decoration: underline !important;
+  }
 }
 
 table {
