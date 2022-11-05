@@ -3,6 +3,9 @@
     border-left: 4px solid $overlay1;
     padding: 1rem 0 1rem 1rem;
     margin: 1.5rem 0;
+    @media only screen and (max-width: 400px) {
+      padding-left: .5rem;
+    }
 
     background: linear-gradient(90deg, $base 0%, $mantle 75%, $bg 100%);
     display: flex;
@@ -22,6 +25,11 @@
       padding: .4rem 1rem 0 1rem;
       display: flex;
       flex-direction: column;
+
+      @media only screen and (max-width: 400px) {
+        padding-left: .5rem;
+      }
+
       ul {
         list-style: none;
       }

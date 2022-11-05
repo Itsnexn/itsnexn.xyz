@@ -11,10 +11,9 @@
   .list-item {
     display: flex;
     flex-direction: column;
-    padding: .8rem 0;
+    padding: .8rem 0 .8rem 1rem;
     margin: 1rem 0;
     border-left: 4px solid $overlay1;
-    padding-left: .5rem;
     background: linear-gradient(90deg, $base 0%, $mantle 75%, $bg 100%);
 
     .title {
