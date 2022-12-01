@@ -1,6 +1,6 @@
 <!-- wrote by nexn with vim (ofc) -->
 
-<h1 align="center"><a href="itsnexn.xyz">Itsnexn.xyz</a></h1>
+<h1 align="center"><a href="https://itsnexn.xyz">Itsnexn.xyz</a></h1>
 
 <div align="center">
   <div>
