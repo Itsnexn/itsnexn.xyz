@@ -82,12 +82,8 @@ name = "Projects"
 weight = 3
 url = "projects/"
 [[menu.main]]
-name = "Books"
-weight = 4
-url = "books/"
-[[menu.main]]
 name = "Contact"
-weight = 5
+weight = 4
 url = "contact/"
 
 # -- Donation
