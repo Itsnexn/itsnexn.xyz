@@ -106,10 +106,6 @@ name = "Reddit"
 weight = 2
 url = "https://www.reddit.com/user/Itsnexn"
 [[params.social]]
-name = "Twitter"
-weight = 3
-url = "https://twitter.com/itsnexn/"
-[[params.social]]
 name = "RSS"
 weight = 4
 url = "/index.xml"
