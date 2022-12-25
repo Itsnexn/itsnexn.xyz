@@ -23,9 +23,11 @@
     <ul class="list">
       {{ range .Pages }}
         <li class="list-item">
-          <span class="date">{{ .Date | time.Format .Site.Params.dateFormat }}</span>
-          <span class="separator">–</span>
-          <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+          <div class="item-container">
+            <span class="date">{{ .Date | time.Format .Site.Params.dateFormat }}</span>
+            <span class="separator">–</span>
+            <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+          </div>
         </li>
       {{ end }}
     </ul>
