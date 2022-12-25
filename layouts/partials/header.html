@@ -1,7 +1,7 @@
 {{ if .Site.Menus.main }}
 <nav class="nav">
   {{ $author := .Site.Params.header | default .Site.Params.author }}
-  <div class="author"><a href="/">{{ substr $author 0 -1 }}<span class="vim-caret">{{ substr $author -1 1 }}</span></a></div>
+  <div class="author">[<a href="/">{{ substr $author 0 -1 }}<span class="vim-caret">{{ substr $author -1 1 }}</span></a>]</div>
   <ul class="nav-list">
     {{ $url := .RelPermalink }}
     {{ with .Site.Menus.main }}

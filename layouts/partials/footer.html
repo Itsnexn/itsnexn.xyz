@@ -1,19 +1,30 @@
 <footer class="footer">
-  <section class="donation-sec">
+  <div class="donation-sec">
     <div>
       <a href="/privacy">Privacy Policy</a>
       <span class="separator">•</span>
       <a href="/donation">Donate</a>
     </div>
-  </section>
-  <section class="social-container">
+  </div>
+  <div class="social-container">
     {{ partialCached "social.html" . }}
-  </section>
-  <section class="copyright">
-    copyright {{ .Site.Params.URL }} ©
-    {{ if (and .Site.Params.since (lt .Site.Params.since now.Year)) }}
-      {{ .Site.Params.since }} -
-    {{ end }}
-    {{ now.Year }}
-  </section>
+  </div>
+  <div class="copyright">
+    <div>
+      <span>copyright {{ .Site.Params.URL }}</span>
+      <span> © </span>
+      <span>
+      {{ if (and .Site.Params.since (lt .Site.Params.since now.Year)) }}
+        {{ .Site.Params.since }} -
+      {{ end }}
+      {{ now.Year }}
+      </span>
+    </div>
+    <div>
+      Released under
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+        Creative Commons BY-NC-SA 4.0
+      </a>
+    </div>
+  </div>
 </footer>

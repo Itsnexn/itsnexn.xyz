@@ -4,24 +4,21 @@
   }
   .payopts {
     .payment-list {
-      padding-left: 0;
       .payment-item {
-        display: flex;
-        flex-direction: column;
-        padding: .5rem 0;
-        margin: 1rem 0;
-        border-left: 4px solid $overlay1;
-        padding-left: .5rem;
-        background: linear-gradient(90deg, $base 0%, $mantle 75%, $bg 100%);
         .payment-name, .payment-link {
-          font-family: $fontHeader;
+          display: inline-block;
           font-size: 1.1rem;
           padding-bottom: .4rem;
         }
         font-size: 1rem;
+
         .payment-address {
+          @media only screen and (max-width: 750px) {
+            float: none;
+            display: block;
+          }
           float: right;
-          color: $blue;
+          color: $accent2;
           line-break: anywhere;
         }
       }

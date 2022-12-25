@@ -5,86 +5,34 @@
 }
 
 .list {
+  padding: 0;
   margin-top: 0;
-  padding-left: 0;
-  list-style: none;
-  .list-item {
-    display: flex;
-    flex-direction: column;
-    padding: .8rem 0 .8rem 1rem;
-    margin: 1rem 0;
-    border-left: 4px solid $overlay1;
-    background: linear-gradient(90deg, $base 0%, $mantle 75%, $bg 100%);
+  margin-left: 0;
 
-    .title {
-      font-weight: bold;
-      font-family: $fontHeader;
-      font-size: 1.15rem;
-      padding-bottom: .4rem;
-      @media only screen and (max-width: 750px) {
-        font-size: .95rem;
+  .list-item::marker {
+    margin: 0;
+  }
+
+  .list-item {
+    @media only screen and (max-width: 500px) {
+      * {
+        font-size: 2.7vw !important;
       }
     }
 
-    .post-meta {
-      font-size: .9rem;
+    .title {
+      font-family: $fontHeader;
     }
 
-    .post-desc {
-      margin: .8rem 0 0 0;
+    .date {
+      font-family: $fontCode;
     }
-  }
-}
-
-.pagination {
-  margin-top: 3rem;
-  font-size: 1.2rem;
-  @media only screen and (max-width: 750px) {
-    font-size: 1rem;
-  }
-
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  border-radius: .2rem;
-  background: linear-gradient(90deg, $bg 0%, $mantle 25%, $base 50%, $mantle 75%, $bg 100%);
-
-  .pg-cur {
-    color: $yellow;
-  }
-
-  li {
-    vertical-align: middle;
-    padding: .8rem .6rem;
-    margin: 0 .3rem;
   }
 }
 
 .taxonomy {
   .tx {
-    list-style: none;
     padding-left: 0;
-    .tx-li {
-      display: flex;
-      padding: .5rem 0;
-      border-left: 4px solid $overlay1;
-      padding-left: .5rem;
-      background: linear-gradient(90deg, $base 0%, $mantle 75%, $bg 100%);
-      font-size: 1.25rem;
-      @media only screen and (max-width: 450px) {
-        font-size: initial;
-      }
-
-      .tx-el {
-        font-family: $fontHeader;
-        width: 100%;
-        .count {
-          margin-left: auto;
-          // padding-right: 1rem;
-          float: right;
-        }
-      }
-    }
   }
 }
 

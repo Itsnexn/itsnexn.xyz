@@ -20,7 +20,7 @@ enableEmoji = true
 
 # Add classes for custom css
 [markup.highlight]
-noClasses=false
+style = 'emacs'
 
 [params]
 
@@ -50,7 +50,7 @@ ogImage = "/images/ogimage.jpg"
 header = "Itsnexn"
 
 # date format used in the application
-dateFormat = "January 2, 2006"
+dateFormat = "2006 Jan 02"
 
 # Footer copyright
 since = 2021

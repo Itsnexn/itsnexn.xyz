@@ -1,11 +1,14 @@
 {{ with .Site.Params.social }}
-  <ul class="social">
-    {{ range sort . "weight" }}
-      <li class="social-item">
+  <div class="social">
+    {{ range  $i, $_ := (sort . "weight") }}
+    {{ if ne $i 0 }}<span class="separator">|</span>{{ end }}
+      <span class="social-item">
         <a href="{{ .url | safeURL }}" aria-label="{{ .name }}"
-          {{ if .rel }}rel="{{ .rel }}"{{ end }} class="social-link">{{ .name }}</a>
-      </li>
+          {{ if .rel }}rel="{{ .rel }}"{{ end }}
+          class="social-link"
+          >{{ .name }}</a>
+      </span>
     {{ end }}
-  </ul>
+  </div>
 {{ end }}
 

@@ -21,21 +21,13 @@
     </div>
     {{end}}
     <ul class="list">
-      {{ range .Paginator.Pages }}
+      {{ range .Pages }}
         <li class="list-item">
+          <span class="date">{{ .Date | time.Format .Site.Params.dateFormat }}</span>
+          <span class="separator">–</span>
           <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
-          <div class="post-meta">
-            <span>{{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
-            <span class="separator">•</span>
-            <span>{{ .ReadingTime }} Minute Read</span>
-          </div>
-          {{ with .Description }}
-            <div class="post-desc">{{ . }}</div>
-          {{ end }}
         </li>
       {{ end }}
     </ul>
-
-    {{ partial "pagination.html" . }}
   </section>
 {{ end }}

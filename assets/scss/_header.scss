@@ -21,13 +21,6 @@
     @media only screen and (max-width: 600px) {
       align-self: center;
     }
-
-    &:before {
-      content: "[";
-    }
-    &:after {
-      content: "]";
-    }
   }
 
   .nav-list {
@@ -63,16 +56,14 @@
         color: $fg;
         text-decoration: none;
         transition: color .3s;
-        &:hover {
-          color: $sky;
-        }
       }
     }
+
     .active {
-      background-color: $base;
+      background-color: $accent1;
       .nav-link {
+        color: $bg;
         text-decoration: underline;
-        font-weight: bold;
       }
     }
 

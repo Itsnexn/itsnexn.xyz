@@ -33,6 +33,7 @@
               {{ end }}
             </li>
           {{ end }}
+          {{ if .Date }}
           <li class="meta-item">
             <span class="mkey">
               Published At:
@@ -41,6 +42,7 @@
               {{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}
             </time>
           </li>
+          {{ end }}
           <li class="meta-item">
             <span class="mkey">Reading Time:</span>
             <span>{{ .ReadingTime }} Minute</span>
